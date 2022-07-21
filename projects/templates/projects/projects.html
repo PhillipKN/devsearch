@@ -5,7 +5,6 @@
 
 <table>
     <tr>
-        <th>ID</th>
         <th>Project</th>
         <th>Positive Votes</th>
         <th>Votes</th>
@@ -13,7 +12,6 @@
     </tr>
     {% for project in projects %}
         <tr>
-            <td>{{project.id}}</td>
             <td>{{project.title}}</td>
             <td>{{project.vote_ratio}}%</td>
             <td>{{project.vote_total}}</td>
