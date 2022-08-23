@@ -4,6 +4,7 @@ from turtle import title
 from django.db import models
 import uuid
 
+
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)

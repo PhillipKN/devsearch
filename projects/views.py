@@ -6,8 +6,15 @@ from .forms import ProjectForm
 
 def projects(request):
     projects = Project.objects.all()
+    user_agent = request.META['HTTP_USER_AGENT']
+    keywords = ['Mobile','Opera Mini','Android']
 
-    context = {'projects':projects}
+    if any(word in user_agent for word in keywords):
+        device = "Mobile"
+    else:
+        device = "Desktop"
+    context = {'projects':projects,'user_device': user_agent,'device':device}
+    
     return render(request, 'projects/projects.html', context)
 
 def project(request, pk):
