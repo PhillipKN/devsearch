@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 import uuid
 
-
-
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
@@ -26,7 +24,7 @@ class Profile(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self) -> str:
-        return str(self.user.username)
+        return str(self.username)
 
 class Skill(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True,    editable=False)
@@ -37,7 +35,3 @@ class Skill(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
-
-
-
-
